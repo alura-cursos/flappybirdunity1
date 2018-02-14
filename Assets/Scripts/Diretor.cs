@@ -6,11 +6,17 @@ public class Diretor : MonoBehaviour {
     [SerializeField]
     private GameObject imagemGameOver;
     private Aviao aviao;
+    private Pontuacao pontucao;
+
+
 
     private void Start()
     {
         this.aviao = GameObject.FindObjectOfType<Aviao>();
+        this.pontucao = GameObject.FindObjectOfType<Pontuacao>();
+ 
     }
+
     public void FinalizarJogo()
     {
         Time.timeScale = 0;
@@ -24,6 +30,8 @@ public class Diretor : MonoBehaviour {
         Time.timeScale = 1;
         this.aviao.Reiniciar();
         this.DestruirObstaculos();
+        this.pontucao.Reiniciar();
+        
     }
 
     private void DestruirObstaculos()
